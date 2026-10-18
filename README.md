@@ -3,10 +3,21 @@
 多页面静态网站：**课程作业 + 学科竞赛** 双板块组队平台。
 全站采用**平面设计（graphic design）**语言，参考《明日方舟》的视觉体系。
 
+## 在线访问（已部署到公网）
+
+GitHub 仓库：https://github.com/mapleqin447/xjtlu-teamup
+
+在线站点（GitHub Pages）：**https://mapleqin447.github.io/xjtlu-teamup/**
+
+纯静态站点，电脑和手机浏览器直接打开即可，不需要安装任何东西。
+根路径的 `index.html` 是 `点我打开首页.html` 的副本 —— GitHub Pages 只把 `index.html` 当作首页，
+所以两个文件内容必须完全一致，改首页时记得两边一起改。
+
 ## 文件结构
 
     xjtlu-teamup/
-    ├─ 点我打开首页.html     首页 ★ 平面设计版首屏
+    ├─ 点我打开首页.html     首页 ★ 平面设计版首屏（本地双击打开用）
+    ├─ index.html     首页（GitHub Pages 根路径副本，内容与上一行完全一致）
     ├─ why.html       01 我们为什么做这个平台   ← 平台目的，最重要的一页
     ├─ how.html       02 怎么开始
     ├─ boards.html    03 一个平台，两大板块
