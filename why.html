@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>我们为什么做这个平台 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="组队是西浦的高频刚需，但现有方式低效、靠熟人、靠运气。了解我们做这个平台的出发点与目的。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<!-- ============ 顶部导航：每个页面完全相同，只有当前页会高亮 ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a><a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>01 · 背景</p>
+      <h1>我们为什么做这个平台</h1>
+      <p class="lead">
+        组队本来应该是学习和成长里最有价值的一件事，但在西浦，它常常先变成一场消耗：
+        花很多时间找人、靠熟人碰运气、组完才发现不合适。我们做这个平台，不是为了再做一个发帖工具，
+        而是想把组队里最缺的两样东西补上 —— <strong>确定的匹配</strong>，和<strong>可查的信任</strong>。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <ol class="reasons">
+        <li class="reason">
+          <div class="no">01</div>
+          <h3>因为组队是西浦的高频刚需</h3>
+          <p>
+            西浦采用英式教育体系，小组作业与项目制学习是课程的核心组成部分，每学期平均组队 3–4 次；
+            跨专业选课、学科竞赛、暑期科研，都需要学生跳出自己的班级去找队友。
+            这不是小众需求，而是贯穿整个学期的日常。
+          </p>
+        </li>
+
+        <li class="reason">
+          <div class="no">02</div>
+          <h3>因为现在找队友的办法太低效</h3>
+          <p>
+            97.1% 的同学靠同班同学组队，88.6% 靠认识的人，54.3% 在朋友圈和微信群里发帖。
+            信息很快被刷屏淹没，圈子封闭、专业背景单一，想跨专业找到一个真正互补的队友，几乎只能靠碰。
+          </p>
+        </li>
+
+        <li class="reason">
+          <div class="no">03</div>
+          <h3>因为「不靠谱」是最大的隐形成本</h3>
+          <p>
+            100% 的受访者担心遇到不靠谱的队友，65.7% 被队友「划水」坑过，74.3% 是组队之后才发现彼此不合适。
+            选错一个人，赔掉的是整段项目时间和一次难得的机会。
+          </p>
+        </li>
+
+        <li class="reason">
+          <div class="no">04</div>
+          <h3>因为竞赛信息是一座孤岛</h3>
+          <p>
+            34.3% 的学生有明确的参赛意愿，却因为「找不到队友」而止步；赛事信息分散在不同的平台和群里，
+            没有统一入口，也没有时间节点提醒，很多人就这样错过了本可以参加的比赛。
+          </p>
+        </li>
+      </ol>
+
+      <div class="purpose">
+        <span class="tag">所以我们做这件事的目的</span>
+        <p>
+          把「靠熟人、靠运气」的组队，变成<span class="hl">「可筛选、可信任」的协作</span>。
+          让每一个愿意认真做项目的西浦学生，都能在几分钟内找到专业互补、时间合适、口碑可查的队友；
+          也让每一次组队，都留下一份可以积累的信用记录。
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

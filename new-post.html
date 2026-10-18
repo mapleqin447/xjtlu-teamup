@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>发布招募帖 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="发布一条组队招募帖：板块、课程代码、需要的技能、可投入时间与详细说明。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="compose">
+    <div class="auth-bg" aria-hidden="true"></div>
+    <div class="auth-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="list-head">
+        <div class="list-head-text">
+          <span class="tag-mono">New Post</span>
+          <h1>发布招募帖</h1>
+          <p>写清楚「要什么人、干什么、什么时候」，被找对人回应的概率会高很多。</p>
+        </div>
+      </div>
+
+      <div class="compose-layout">
+        <form class="compose-form" novalidate>
+
+          <section class="reg-section">
+            <div class="reg-section-head"><span class="no">01</span><h2>发到哪个板块</h2></div>
+            <div class="radio-row">
+              <label class="radio-card">
+                <input type="radio" name="board" value="course" checked />
+                <span><b>课程作业组队</b><i>按课程代码找同课队友</i></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="board" value="contest" />
+                <span><b>学科竞赛组队</b><i>聚合赛事信息，按技能找队友</i></span>
+              </label>
+            </div>
+          </section>
+
+          <section class="reg-section">
+            <div class="reg-section-head"><span class="no">02</span><h2>基本信息</h2></div>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="code">课程代码 / 比赛名称</label>
+                <input class="field-input" id="code" type="text" placeholder="例如 INT202" maxlength="24" />
+              </div>
+              <div class="field">
+                <label class="field-label" for="slots">还要招几个人</label>
+                <select class="field-input" id="slots">
+                  <option>1 人</option>
+                  <option>2 人</option>
+                  <option>3 人</option>
+                  <option>4 人</option>
+                </select>
+              </div>
+              <div class="field field-wide" style="margin-bottom:0;">
+                <label class="field-label" for="title">标题</label>
+                <input class="field-input" id="title" type="text" placeholder="一句话说清要干什么" maxlength="40" />
+              </div>
+            </div>
+          </section>
+
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">03</span><h2>需要的技能</h2>
+              <span class="hint chip-count">0 / 4</span>
+            </div>
+            <p class="reg-section-lead">最多 4 个。写清楚要什么，比写「靠谱就行」有用得多。</p>
+            <div class="chips">
+            <button class="chip chip-sm" type="button" data-need-skill="编程">编程</button>
+            <button class="chip chip-sm" type="button" data-need-skill="建模">建模</button>
+            <button class="chip chip-sm" type="button" data-need-skill="数据分析">数据分析</button>
+            <button class="chip chip-sm" type="button" data-need-skill="视觉设计">视觉设计</button>
+            <button class="chip chip-sm" type="button" data-need-skill="文案撰写">文案撰写</button>
+            <button class="chip chip-sm" type="button" data-need-skill="PPT 制作">PPT 制作</button>
+            <button class="chip chip-sm" type="button" data-need-skill="调研访谈">调研访谈</button>
+            <button class="chip chip-sm" type="button" data-need-skill="答辩陈述">答辩陈述</button>
+            </div>
+          </section>
+
+          <section class="reg-section">
+            <div class="reg-section-head"><span class="no">04</span><h2>期望投入时间</h2></div>
+            <div class="chips">
+            <button class="chip chip-sm" type="button" data-need-time="工作日晚间">工作日晚间</button>
+            <button class="chip chip-sm" type="button" data-need-time="周末白天">周末白天</button>
+            <button class="chip chip-sm" type="button" data-need-time="周末晚间">周末晚间</button>
+            <button class="chip chip-sm" type="button" data-need-time="课间碎片">课间碎片</button>
+            <button class="chip chip-sm" type="button" data-need-time="假期集中">假期集中</button>
+            </div>
+          </section>
+
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">05</span><h2>详细说明</h2>
+              <span class="hint intro-count">0 / 300</span>
+            </div>
+            <p class="reg-section-lead">说清四件事：在做什么 · 进行到哪 · 希望队友承担什么 · 不能忍什么。</p>
+            <textarea class="field-textarea" id="desc" maxlength="300"
+                      placeholder="例如：作业是做一个图书借阅系统，需求和数据模型已经画完。缺一个做数据分析和图表的、一个写报告的。每周固定碰两次，进度透明。不希望临交前才有人说做不完。"></textarea>
+          </section>
+
+          <section class="reg-section reg-submit">
+            <button class="btn btn-ink reg-submit-btn" type="submit">发布招募帖</button>
+            <p class="form-msg" role="status" aria-live="polite"></p>
+          </section>
+        </form>
+
+        <!-- 右侧：写作提示（来自策划 PPT 的「发帖规范化模板」） -->
+        <aside class="compose-side">
+          <div class="owner-card">
+            <div class="owner-card-top"><span>Guide</span><span>怎么写</span></div>
+            <div class="owner-card-body">
+              <ul class="guide-list">
+                <li><b>写清技能，别写态度</b>「需要 Python 和建模」比「需要靠谱的人」有用得多。</li>
+                <li><b>写清时间</b>一周能投入几个晚上、能不能上周末，比「时间灵活」可靠。</li>
+                <li><b>写清分工</b>你想让对方负责哪一块、你自己负责哪一块。</li>
+                <li><b>写清底线</b>不能忍什么可以直接说，能过滤掉不合适的申请。</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="detail-tip">
+            发布前需完成校园实名认证。你发过的帖子会显示在个人主页，
+            被举报或长期不处理申请会影响信用分。
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

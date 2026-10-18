@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>信用评测 · TrustMate</title>
+<meta name="description" content="六个问题，定一个初始信用分。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<!-- ============ 顶部导航：每个页面完全相同，只有当前页会高亮 ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a><a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="sv" data-sv>
+  <div class="wrap">
+    <a class="back-link" href="register.html"><span class="back-arrow" aria-hidden="true">←</span><span>回到注册</span></a>
+    <p class="eyebrow"><span class="dot"></span>Onboarding · 信用评测</p>
+    <h1 class="sv-title">先聊聊你的合作习惯</h1>
+    <p class="sv-lead">六个问题，两分钟。答案只用来定一个<b>初始信用分</b> —— 之后的分数由每次组队结束后的双向互评累积，不会因为你今天选得保守就一直低。</p>
+
+    <div class="sv-card">
+      <div class="sv-q" data-sv-q="1">
+        <p class="sv-q-title"><span>01</span>上次小组作业，你那部分交得怎么样？</p>
+        <div class="sv-opts">
+          <button class="sv-opt" type="button" data-sv-v="4" aria-pressed="false">提前交，还会顺手检查一遍</button>
+          <button class="sv-opt" type="button" data-sv-v="3" aria-pressed="false">按时交</button>
+          <button class="sv-opt" type="button" data-sv-v="1" aria-pressed="false">拖过一两次</button>
+        </div>
+      </div>
+      <div class="sv-q" data-sv-q="2">
+        <p class="sv-q-title"><span>02</span>分工的时候，你更常做什么？</p>
+        <div class="sv-opts">
+          <button class="sv-opt" type="button" data-sv-v="4" aria-pressed="false">主动认领最难的那块</button>
+          <button class="sv-opt" type="button" data-sv-v="3" aria-pressed="false">别人挑剩下的我来</button>
+          <button class="sv-opt" type="button" data-sv-v="1" aria-pressed="false">等安排</button>
+        </div>
+      </div>
+      <div class="sv-q" data-sv-q="3">
+        <p class="sv-q-title"><span>03</span>和别人意见不一致时？</p>
+        <div class="sv-opts">
+          <button class="sv-opt" type="button" data-sv-v="4" aria-pressed="false">先听完，再摆事实</button>
+          <button class="sv-opt" type="button" data-sv-v="3" aria-pressed="false">少数服从多数</button>
+          <button class="sv-opt" type="button" data-sv-v="1" aria-pressed="false">容易上头</button>
+        </div>
+      </div>
+      <div class="sv-q" data-sv-q="4">
+        <p class="sv-q-title"><span>04</span>进度被问的时候？</p>
+        <div class="sv-opts">
+          <button class="sv-opt" type="button" data-sv-v="4" aria-pressed="false">我会主动同步</button>
+          <button class="sv-opt" type="button" data-sv-v="3" aria-pressed="false">问了会说</button>
+          <button class="sv-opt" type="button" data-sv-v="1" aria-pressed="false">有时忘了回</button>
+        </div>
+      </div>
+      <div class="sv-q" data-sv-q="5">
+        <p class="sv-q-title"><span>05</span>遇到不会做的部分？</p>
+        <div class="sv-opts">
+          <button class="sv-opt" type="button" data-sv-v="4" aria-pressed="false">先自己查，卡住了就喊人</button>
+          <button class="sv-opt" type="button" data-sv-v="3" aria-pressed="false">直接问队友</button>
+          <button class="sv-opt" type="button" data-sv-v="1" aria-pressed="false">拖着等别人做</button>
+        </div>
+      </div>
+      <div class="sv-q" data-sv-q="6">
+        <p class="sv-q-title"><span>06</span>你希望在这里拿到什么？</p>
+        <div class="sv-opts">
+          <button class="sv-opt" type="button" data-sv-v="4" aria-pressed="false">找长期搭子</button>
+          <button class="sv-opt" type="button" data-sv-v="3" aria-pressed="false">完成这学期的项目</button>
+          <button class="sv-opt" type="button" data-sv-v="1" aria-pressed="false">先看看</button>
+        </div>
+      </div>
+      <div class="sv-foot">
+        <p class="sv-progress">已回答 <b data-sv-count>0</b> / 6</p>
+        <div class="sv-actions">
+          <button class="btn btn-ink" type="button" data-sv-submit disabled>算出我的初始分</button>
+          <a class="btn btn-line" href="profile.html">先跳过，用 60 分起步</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sv-result" data-sv-result hidden>
+      <p class="sv-result-label">你的初始信用分</p>
+      <p class="sv-result-score" data-sv-score>—</p>
+      <p class="sv-result-level" data-sv-level></p>
+      <p class="sv-result-note">这个分数只代表起点。真正决定它的是你之后的每一次组队：按时交付、主动同步、把事做完。<br />初始分不参与任何排序，也不会展示给别人当作能力评价。</p>
+      <div class="sv-actions">
+        <a class="btn btn-ink" href="profile.html">看看我的主页</a>
+        <a class="btn btn-line" href="listings.html">去找队友</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

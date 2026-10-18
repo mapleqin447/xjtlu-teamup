@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>一个平台，两大板块 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="课程作业组队与竞赛组队双板块，按课程代码与技能标签精准匹配队友。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<!-- ============ 顶部导航：每个页面完全相同，只有当前页会高亮 ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a><a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot"></span>02 · 产品结构</p>
+      <h1>一个平台，两大板块</h1>
+      <p class="lead">
+        课程作业和学科竞赛，是两种完全不同的场景：前者看课程、看时间，后者看技能、看赛事。
+        所以我们把它们分成两个独立板块，而不是混在同一个信息流里互相淹没。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="boards">
+        <a class="board" href="listings.html#course">
+          <div class="kicker">BOARD 01</div>
+          <h3>课程作业组队</h3>
+          <p class="desc">按课程找同课队友，让小组作业从一开始就搭配得合理。</p>
+          <ul>
+            <li>按课程名称 / 课程代码精准筛选，快速找到同课同学</li>
+            <li>匹配专业背景与课余时间，减少时间冲突和无效沟通</li>
+            <li>结课后双向互评，把「靠谱」沉淀成可积累的信用记录</li>
+          </ul>
+        <span class="board-go">去看课程组队帖 →</span></a>
+
+        <a class="board" href="listings.html#contest">
+          <div class="kicker">BOARD 02</div>
+          <h3>竞赛组队</h3>
+          <p class="desc">聚合赛事信息，按技能标签找到互补的队友，一起打比赛。</p>
+          <ul>
+            <li>聚合各类学科竞赛信息，实时更新报名动态与时间节点</li>
+            <li>自由发布招募帖，自定义队伍需求、技能要求与门槛</li>
+            <li>按技能标签（编程 / 建模 / 设计 / 答辩）精准匹配</li>
+          </ul>
+        <span class="board-go">去看竞赛组队帖 →</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

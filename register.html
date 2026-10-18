@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>注册 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="注册西浦校园组队平台：上传头像、填写擅长的方向与自我介绍，建立你的组队档案。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<!-- ============ 顶部导航 ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html" class="is-active">注册</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="reg">
+    <div class="auth-bg" aria-hidden="true"></div>
+    <div class="auth-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <!-- 页头 -->
+      <div class="reg-head">
+        <span class="tag-mono">Create Profile</span>
+        <h1>创建你的组队档案</h1>
+        <p>
+          这些信息会被队友看到：你擅长什么、什么时候有空、做过什么。
+          填得越具体，越容易被对的人找到。
+        </p>
+      </div>
+
+      <div class="reg-layout">
+
+        <!-- ============ 左：表单 ============ -->
+        <form class="reg-form" novalidate>
+
+          <!-- 01 账号 -->
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">01</span>
+              <h2>账号与实名</h2>
+              <span class="hint">一人一号</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="account">学号 / 校园邮箱</label>
+              <input class="field-input" id="account" name="account" type="text"
+                     placeholder="例如 2023001234" autocomplete="username" />
+            </div>
+
+            <div class="field" style="margin-bottom:0;">
+              <div class="field-row">
+                <label class="field-label" for="reg-password">设置密码</label>
+                <button class="field-toggle" type="button" data-toggle="reg-password">显示</button>
+              </div>
+              <input class="field-input" id="reg-password" name="password" type="password"
+                     placeholder="至少 6 位" autocomplete="new-password" />
+            </div>
+          </section>
+
+          <!-- 02 头像与名字 -->
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">02</span>
+              <h2>头像与名字</h2>
+            </div>
+
+            <div class="avatar-row" id="avatarRow">
+              <label class="avatar-box" for="avatar-input" title="点击选择图片">
+                <span class="avatar-hint">＋<br />Upload</span>
+                <img id="avatar-image" alt="" hidden />
+              </label>
+              <input class="sr-only" id="avatar-input" name="avatar" type="file" accept="image/*" />
+
+              <div class="avatar-meta">
+                <p>建议正方形图片，会按正方形裁切显示。</p>
+                <p class="avatar-note">原型阶段：图片只在你的浏览器里预览，不会被上传。</p>
+                <button class="link-quiet avatar-remove" type="button">移除头像</button>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="nickname">名字 / 昵称</label>
+                <input class="field-input" id="nickname" name="nickname" type="text"
+                       placeholder="想让队友怎么称呼你" maxlength="16" />
+              </div>
+              <div class="field">
+                <label class="field-label" for="grade">年级</label>
+                <select class="field-input" id="grade" name="grade">
+                  <option value="">请选择</option>
+                  <option>大一</option>
+                <option>大二</option>
+                <option>大三</option>
+                <option>大四</option>
+                <option>研究生</option>
+                </select>
+              </div>
+              <div class="field field-wide" style="margin-bottom:0;">
+                <label class="field-label" for="major">专业</label>
+                <input class="field-input" id="major" name="major" type="text"
+                       placeholder="例如 计算机科学与技术" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 03 擅长的方向 -->
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">03</span>
+              <h2>擅长的方向</h2>
+              <span class="hint chip-count">0 / 6</span>
+            </div>
+            <p class="reg-section-lead">选你真正能扛得住的，最多 6 个。这些标签决定了别人怎么筛到你。</p>
+
+            <div class="chips">
+            <button class="chip" type="button" data-skill="编程">编程</button>
+            <button class="chip" type="button" data-skill="建模">建模</button>
+            <button class="chip" type="button" data-skill="数据分析">数据分析</button>
+            <button class="chip" type="button" data-skill="视觉设计">视觉设计</button>
+            <button class="chip" type="button" data-skill="答辩陈述">答辩陈述</button>
+            <button class="chip" type="button" data-skill="文案撰写">文案撰写</button>
+            <button class="chip" type="button" data-skill="PPT 制作">PPT 制作</button>
+            <button class="chip" type="button" data-skill="视频剪辑">视频剪辑</button>
+            <button class="chip" type="button" data-skill="调研访谈">调研访谈</button>
+            <button class="chip" type="button" data-skill="翻译">翻译</button>
+            </div>
+          </section>
+
+          <!-- 04 可投入时间 -->
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">04</span>
+              <h2>你可以投入的时间</h2>
+            </div>
+            <p class="reg-section-lead">可以多选。时间对不上，再合适的队友也组不起来。</p>
+
+            <div class="chips">
+            <button class="chip" type="button" data-time="工作日晚间">工作日晚间</button>
+            <button class="chip" type="button" data-time="周末白天">周末白天</button>
+            <button class="chip" type="button" data-time="周末晚间">周末晚间</button>
+            <button class="chip" type="button" data-time="课间碎片">课间碎片</button>
+            <button class="chip" type="button" data-time="假期集中">假期集中</button>
+            </div>
+          </section>
+
+          <!-- 05 自我介绍 -->
+          <section class="reg-section">
+            <div class="reg-section-head">
+              <span class="no">05</span>
+              <h2>自我介绍</h2>
+              <span class="hint intro-count">0 / 120</span>
+            </div>
+            <p class="reg-section-lead">
+              说清楚三件事就够：做过什么、想找什么样的队友、不能忍什么。
+            </p>
+
+            <textarea class="field-textarea" id="intro" name="intro" maxlength="120"
+                      placeholder="例如：做过两次美赛，负责建模和论文写作；想找会编程、能熬夜的队友；不接划水型队友。"></textarea>
+          </section>
+
+          <!-- 提交 -->
+          <section class="reg-section reg-submit">
+            <label class="check">
+              <input type="checkbox" id="agree" name="agree" />
+              <span>我同意实名认证规则，并确认上面的信息真实</span>
+            </label>
+
+            <button class="btn btn-ink reg-submit-btn" type="submit">创建账号</button>
+
+            <p class="form-msg" role="status" aria-live="polite"></p>
+
+            <p class="reg-alt">已经有账号了？<a class="link-inline" href="login.html">直接登录</a></p>
+          </section>
+        </form>
+
+        <!-- ============ 右：实时预览 ============ -->
+        <aside class="reg-side">
+          <div class="reg-preview">
+            <div class="reg-preview-top"><span>Profile</span><span>Preview</span></div>
+
+            <div class="reg-preview-body">
+              <div class="reg-preview-avatar" id="preview-avatar">NOX</div>
+              <div class="reg-preview-name" id="preview-name">你的名字</div>
+              <div class="reg-preview-meta" id="preview-meta">专业 · 年级</div>
+
+              <div class="reg-preview-tags" id="preview-tags">
+                <span class="is-empty">还没有选擅长方向</span>
+              </div>
+
+              <div class="reg-preview-time" id="preview-time">时间待填</div>
+
+              <p class="reg-preview-intro" id="preview-intro">还没有写自我介绍。</p>
+
+              <div class="reg-preview-credit">
+                <span>组队信用分</span>
+                <strong>— —</strong>
+              </div>
+            </div>
+          </div>
+
+          <p class="reg-side-note">
+            这就是队友在列表里看到的你。<br />
+            右边会跟着你左边填的内容实时变化。
+          </p>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

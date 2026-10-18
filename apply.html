@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>申请加入 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="申请加入一支队伍：写清你能贡献什么、什么时候有空、想承担什么角色。对方同意后才互相可见联系方式。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat is-active" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a><a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html" class="is-active">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="back-link" href="post.html"><span class="back-arrow" aria-hidden="true">←</span><span>返回帖子详情</span></a>
+      <p class="eyebrow"><span class="dot"></span>Join Request · 申请加入</p>
+      <h1>申请加入这支队伍</h1>
+      <p class="lead">
+        申请会带上你的档案和技能标签一起发出去。写清楚你能做什么、什么时候有空，
+        对方更容易点头 —— 也更容易一开始就把分工讲明白。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="aj-grid">
+
+        <div class="aj-main">
+
+          <div class="aj-card">
+            <div class="aj-team">
+              <div class="aj-team-top">
+                <span class="aj-badge">课程组队</span>
+                <span class="aj-badge">INT202</span>
+                <span class="aj-when">2 小时前发布</span>
+              </div>
+              <div class="aj-title">找 2 人一起做 INT202 数据库小组作业</div>
+              <p class="aj-meta">
+                需要一个负责数据分析和写报告的队友，最好会一点编程。作业量不小，但可以一起排时间。<br />
+                需要的技能：数据分析 · 文案撰写 ｜ 期望投入：工作日晚上 · 周末白天
+              </p>
+            </div>
+            <div class="aj-facts">
+              <div><b>缺 2 人</b><span>现在共 4 人</span></div>
+              <div><b>2 人</b><span>队内已有成员</span></div>
+              <div><b>92</b><span>发布者信用分</span></div>
+            </div>
+          </div>
+
+          <div class="aj-card">
+            <form class="aj-form" novalidate>
+
+              <div class="aj-field">
+                <label class="aj-label" for="aj-why">一句话说明你为什么想加入<em>必填 · 80 字内</em></label>
+                <textarea class="aj-textarea" id="aj-why" name="why" maxlength="80" placeholder="比如：我做过两次课程小组，SQL 和数据清洗比较熟，也愿意写报告。"></textarea>
+                <span class="aj-count">0 / 80</span>
+              </div>
+
+              <div class="aj-field">
+                <span class="aj-label">你能贡献什么<em>选 1–4 个</em></span>
+                <div class="aj-chips">
+            <button class="aj-chip" type="button" data-aj-skill="编程">编程</button>
+            <button class="aj-chip" type="button" data-aj-skill="建模">建模</button>
+            <button class="aj-chip" type="button" data-aj-skill="数据分析">数据分析</button>
+            <button class="aj-chip" type="button" data-aj-skill="视觉设计">视觉设计</button>
+            <button class="aj-chip" type="button" data-aj-skill="文案撰写">文案撰写</button>
+            <button class="aj-chip" type="button" data-aj-skill="PPT 制作">PPT 制作</button>
+            <button class="aj-chip" type="button" data-aj-skill="调研访谈">调研访谈</button>
+            <button class="aj-chip" type="button" data-aj-skill="答辩陈述">答辩陈述</button>
+                </div>
+              </div>
+
+              <div class="aj-field">
+                <span class="aj-label">你可投入的时间<em>可多选</em></span>
+                <div class="aj-chips">
+            <button class="aj-chip" type="button" data-aj-time="工作日晚上">工作日晚上</button>
+            <button class="aj-chip" type="button" data-aj-time="周末白天">周末白天</button>
+            <button class="aj-chip" type="button" data-aj-time="周末晚间">周末晚间</button>
+            <button class="aj-chip" type="button" data-aj-time="课间碎片">课间碎片</button>
+            <button class="aj-chip" type="button" data-aj-time="假期集中">假期集中</button>
+                </div>
+              </div>
+
+              <div class="aj-field">
+                <span class="aj-label">你希望承担<em>单选</em></span>
+                <div class="aj-chips">
+            <button class="aj-chip" type="button" data-aj-role="建模主力">建模主力</button>
+            <button class="aj-chip" type="button" data-aj-role="编程实现">编程实现</button>
+            <button class="aj-chip" type="button" data-aj-role="数据清洗">数据清洗</button>
+            <button class="aj-chip" type="button" data-aj-role="报告撰写">报告撰写</button>
+            <button class="aj-chip" type="button" data-aj-role="答辩汇报">答辩汇报</button>
+                </div>
+              </div>
+
+              <div class="aj-field">
+                <label class="aj-label" for="aj-account">学号 / 校园邮箱<em>对方同意后才可见</em></label>
+                <input class="aj-input" id="aj-account" name="account" type="text" placeholder="例如 2023001234 或 you@student.xjtlu.edu.cn" />
+              </div>
+
+              <div class="aj-field">
+                <label class="aj-check" for="aj-agree">
+                  <input id="aj-agree" type="checkbox" />
+                  <span>我了解：申请会带上我的档案与信用分；对方同意后我们才能互相看到联系方式；组队结束后的互评会计入我的信用分。</span>
+                </label>
+              </div>
+
+              <div class="aj-actions">
+                <button class="btn btn-ink" type="submit">发送申请</button>
+                <a class="btn btn-line" href="post.html">先不申请，回详情页</a>
+                <a class="btn btn-line" href="chat.html">去私聊</a>
+              </div>
+              <p class="aj-msg" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+        </div>
+
+        <aside class="aj-side">
+
+          <div class="aj-card">
+            <div class="aj-me">
+              <span class="post-avatar" id="aj-avatar">你</span>
+              <div>
+                <div class="aj-me-name" id="aj-name">我的账号</div>
+                <div class="aj-me-sub" id="aj-sub">这份档案会一起发给对方</div>
+              </div>
+            </div>
+            <span class="aj-label">我的擅长方向</span>
+            <ul class="post-tags" id="aj-my-skills">
+              <li class="post-tag is-skill">编程</li>
+              <li class="post-tag is-skill">数据分析</li>
+              <li class="post-tag is-time">信用分 92</li>
+            </ul>
+            <p class="aj-note" style="margin-top:16px;">
+              档案不完整会影响通过率。去 <a class="link-inline" href="register.html">补全我的档案</a>。
+            </p>
+          </div>
+
+          <div class="aj-card">
+            <span class="aj-label" style="margin-bottom:14px;">申请之后会发生什么</span>
+            <ul class="aj-steps">
+              <li data-step="1">对方收到申请，能看到你的档案、技能标签和信用分，但看不到联系方式。</li>
+              <li data-step="2">对方同意后，双方联系方式互相可见，你会收到通知。</li>
+              <li data-step="3">进入 <a class="link-inline" href="team.html">队伍工作台</a>，一起排任务和分工。</li>
+            </ul>
+          </div>
+
+          <div class="aj-card">
+            <span class="aj-label" style="margin-bottom:14px;">我发出的申请</span>
+            <div class="aj-pending">
+              <b>MCM/ICM 美赛 · 3 人队</b>
+              <span class="aj-when">等待回复 · 1 天</span>
+            </div>
+            <p class="aj-note" style="margin-top:14px;">一周内没收到回复，可以撤回重新申请，不会留下记录。</p>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="aj-card">
+        <div class="aj-title" style="margin-bottom:10px;">还没想好？先把队伍看一圈。</div>
+        <p class="aj-meta" style="margin-bottom:20px;">组队帖里还有别的队伍在等人。同一行多选是「满足任一」，跨行是「都要满足」。</p>
+        <div class="hero-actions">
+          <a class="btn btn-ink" href="listings.html">回去看组队帖</a>
+          <a class="btn btn-line" href="team.html">看看成队后的队伍工作台</a>
+          <a class="btn btn-line" href="new-post.html">自己发一条招募帖</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>个人评价 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="查一个人过往的组队评价，或留下你的那一句。" />
+<link rel="stylesheet" href="style.css" />
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html" class="is-active">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html" class="is-active">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="subboard">
+    <div class="auth-bg" aria-hidden="true"></div>
+    <div class="auth-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <a class="back-link" href="forum.html"><span class="back-arrow" aria-hidden="true">←</span><span>返回论坛</span></a>
+
+      <div class="subboard-head">
+        <span class="tag-mono">Forum / 04</span>
+        <h1>个人评价</h1>
+        <p>查一个人过往的组队评价，或者留下你的那一句。</p>
+      </div>
+
+      <nav class="subboard-nav" aria-label="论坛板块">
+        <a href="forum-experience.html">组队的经验</a>
+        <a href="forum-pitfalls.html">踩过的坑</a>
+        <a href="forum-contests.html">赛事的讨论</a>
+        <a href="forum-reviews.html" class="is-on">个人评价</a>
+      </nav>
+
+      <div class="eval-search">
+        <label class="field-label" for="eval-q">查一个人</label>
+        <div class="eval-search-row">
+          <input class="field-input" id="eval-q" type="search" placeholder="输入名字或学号，查看 TA 的公开评价" />
+          <a class="btn btn-ink eval-go" href="profile.html#sec-reviews">查看</a>
+        </div>
+        <p class="eval-note">
+          评价来自真实组队结束后的双向互评，<strong>只有双方都提交之后才会公开</strong> ——
+          所以这里看到的是「已经互相评过」的记录，不是谁都能写的留言板。
+          想看自己收到了什么评价，去 <a class="link-inline" href="profile.html">个人主页</a>；
+          想给刚结束的队伍打分，去 <a class="link-inline" href="review.html">互评</a>。
+        </p>
+        <p class="form-msg eval-msg" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="sec-head" style="margin:8px 0 16px;"><span class="num">Recent</span><h2>最近的公开评价</h2></div>
+
+      <div class="eval-list">
+        <article class="eval-card">
+          <div class="eval-head">
+            <span class="post-avatar">李</span>
+            <span class="eval-name">李四</span>
+            <span class="eval-sub">金融数学 · 大一</span>
+            <span class="eval-stars" aria-label="评分 5">★★★★★</span>
+          </div>
+          <p>SQL 部分写得干净，进度从不拖。中期我对需求理解错了，是他先发现并拉回来。</p>
+          <ul class="post-tags">
+            <li class="post-tag is-skill">按时交付</li>
+            <li class="post-tag is-skill">沟通顺畅</li>
+            <li class="post-tag is-time">课程组队 · INT202</li>
+          </ul>
+          <span class="eval-when">3 天前</span>
+        </article>
+        <article class="eval-card">
+          <div class="eval-head">
+            <span class="post-avatar">吴</span>
+            <span class="eval-name">吴九</span>
+            <span class="eval-sub">数学与应用数学 · 大三</span>
+            <span class="eval-stars" aria-label="评分 5">★★★★★</span>
+          </div>
+          <p>凌晨三点还在跑数据，最后论文里的图全是他出的。愿意补位，不挑活。</p>
+          <ul class="post-tags">
+            <li class="post-tag is-skill">任务贡献</li>
+            <li class="post-tag is-skill">愿意补位</li>
+            <li class="post-tag is-time">学科竞赛 · MCM/ICM</li>
+          </ul>
+          <span class="eval-when">1 周前</span>
+        </article>
+        <article class="eval-card">
+          <div class="eval-head">
+            <span class="post-avatar">王</span>
+            <span class="eval-name">王五</span>
+            <span class="eval-sub">国际商务 · 大三</span>
+            <span class="eval-stars" aria-label="评分 5">★★★★★</span>
+          </div>
+          <p>技术没问题。唯一想说的是前期沟通少了一点，希望下次能更早同步进度。</p>
+          <ul class="post-tags">
+            <li class="post-tag is-skill">技术强</li>
+            <li class="post-tag is-time">课程组队 · BUS101</li>
+          </ul>
+          <span class="eval-when">2 周前</span>
+        </article>
+        <article class="eval-card">
+          <div class="eval-head">
+            <span class="post-avatar">孙</span>
+            <span class="eval-name">孙七</span>
+            <span class="eval-sub">建筑学 · 大二</span>
+            <span class="eval-stars" aria-label="评分 5">★★★★★</span>
+          </div>
+          <p>出图质量非常高，答辩也是他主讲的。组队过程几乎没有摩擦。</p>
+          <ul class="post-tags">
+            <li class="post-tag is-skill">交付质量高</li>
+            <li class="post-tag is-skill">答辩表现好</li>
+            <li class="post-tag is-time">课程组队 · ARC210</li>
+          </ul>
+          <span class="eval-when">3 周前</span>
+        </article>
+        <article class="eval-card">
+          <div class="eval-head">
+            <span class="post-avatar">陈</span>
+            <span class="eval-name">陈二</span>
+            <span class="eval-sub">数学与应用数学 · 大二</span>
+            <span class="eval-stars" aria-label="评分 5">★★★★★</span>
+          </div>
+          <p>论文排版和查重都靠他，最后两天基本没睡。缺点是回复消息有点慢。</p>
+          <ul class="post-tags">
+            <li class="post-tag is-skill">任务贡献</li>
+            <li class="post-tag is-time">学科竞赛 · 数学建模国赛</li>
+          </ul>
+          <span class="eval-when">1 个月前</span>
+        </article>
+        <article class="eval-card">
+          <div class="eval-head">
+            <span class="post-avatar">冯</span>
+            <span class="eval-name">冯一</span>
+            <span class="eval-sub">国际商务 · 大三</span>
+            <span class="eval-stars" aria-label="评分 5">★★★★★</span>
+          </div>
+          <p>PPT 做得比我们想的好，答辩也很稳。下次有机会还想一起。</p>
+          <ul class="post-tags">
+            <li class="post-tag is-skill">交付质量高</li>
+            <li class="post-tag is-skill">答辩表现好</li>
+            <li class="post-tag is-time">学科竞赛 · 商业案例赛</li>
+          </ul>
+          <span class="eval-when">1 个月前</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

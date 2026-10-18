@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>竞赛信息 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="聚合学科竞赛信息：报名截止、比赛时间、队伍规模与相关招募帖。" />
+<link rel="stylesheet" href="style.css" />
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html" class="is-active">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html" class="is-active">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="list">
+    <div class="auth-bg" aria-hidden="true"></div>
+    <div class="auth-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="list-head">
+        <div class="list-head-text">
+          <span class="tag-mono">Contests</span>
+          <h1>竞赛信息</h1>
+          <p>把散在各个群和公众号里的赛事信息聚合到一处，标清楚报名截止和比赛时间。</p>
+        </div>
+        <a class="btn btn-ink" href="listings.html#contest">去竞赛组队板块</a>
+      </div>
+
+      <div class="list-meta">
+        <span class="list-count">共 5 项赛事</span>
+        <span class="list-hint">信息以主办方最终通知为准，平台只做聚合与提醒</span>
+      </div>
+
+      <div class="contest-list">
+        <article class="contest">
+          <header class="contest-head">
+            <span class="post-board is-course">正在报名</span>
+            <span class="contest-name">美国大学生数学建模竞赛 MCM/ICM</span>
+          </header>
+          <ul class="contest-facts">
+            <li><span>报名截止</span><b>2027-01-20</b></li>
+            <li><span>比赛时间</span><b>2027-02-01 ~ 02-05</b></li>
+            <li><span>队伍规模</span><b>3 人</b></li>
+            <li><span>相关招募帖</span><b>1 条</b></li>
+          </ul>
+          <p>三天两夜完成一道开放性建模题，写一篇英文论文。适合有建模、编程、写作分工的队伍，寒假需要集中投入。</p>
+          <footer class="contest-foot">
+            <ul class="post-tags">
+              <li class="post-tag is-skill">编程</li>
+              <li class="post-tag is-skill">建模</li>
+              <li class="post-tag is-skill">文案撰写</li>
+            </ul>
+            <a class="btn btn-line" href="listings.html?q=美赛#contest">去找队友</a>
+          </footer>
+        </article>
+        <article class="contest">
+          <header class="contest-head">
+            <span class="post-board is-course">即将开始</span>
+            <span class="contest-name">全国大学生数学建模竞赛（国赛）</span>
+          </header>
+          <ul class="contest-facts">
+            <li><span>报名截止</span><b>2027-06-10</b></li>
+            <li><span>比赛时间</span><b>2027-09-09 ~ 09-12</b></li>
+            <li><span>队伍规模</span><b>3 人</b></li>
+            <li><span>相关招募帖</span><b>1 条</b></li>
+          </ul>
+          <p>国内认可度最高的建模赛事之一。题目偏工程应用，需要有人扛论文排版，三天时间很紧。</p>
+          <footer class="contest-foot">
+            <ul class="post-tags">
+              <li class="post-tag is-skill">建模</li>
+              <li class="post-tag is-skill">编程</li>
+              <li class="post-tag is-skill">数据分析</li>
+            </ul>
+            <a class="btn btn-line" href="listings.html?q=国赛#contest">去找队友</a>
+          </footer>
+        </article>
+        <article class="contest">
+          <header class="contest-head">
+            <span class="post-board is-course">正在报名</span>
+            <span class="contest-name">挑战杯大学生课外学术科技作品竞赛</span>
+          </header>
+          <ul class="contest-facts">
+            <li><span>报名截止</span><b>2026-11-30</b></li>
+            <li><span>比赛时间</span><b>2026-12 ~ 2027-05</b></li>
+            <li><span>队伍规模</span><b>5 人</b></li>
+            <li><span>相关招募帖</span><b>1 条</b></li>
+          </ul>
+          <p>偏学术研究的长期项目，需要有调研、写作和答辩能力。校赛选拔后有省赛和全国赛两轮。</p>
+          <footer class="contest-foot">
+            <ul class="post-tags">
+              <li class="post-tag is-skill">调研访谈</li>
+              <li class="post-tag is-skill">文案撰写</li>
+              <li class="post-tag is-skill">答辩陈述</li>
+            </ul>
+            <a class="btn btn-line" href="listings.html?q=挑战杯#contest">去找队友</a>
+          </footer>
+        </article>
+        <article class="contest">
+          <header class="contest-head">
+            <span class="post-board is-course">即将开始</span>
+            <span class="contest-name">全国大学生商业案例分析大赛</span>
+          </header>
+          <ul class="contest-facts">
+            <li><span>报名截止</span><b>2027-03-15</b></li>
+            <li><span>比赛时间</span><b>2027-04</b></li>
+            <li><span>队伍规模</span><b>4 人</b></li>
+            <li><span>相关招募帖</span><b>1 条</b></li>
+          </ul>
+          <p>给定企业案例，限时完成分析并上台答辩。看重 PPT 呈现和临场接问题的能力。</p>
+          <footer class="contest-foot">
+            <ul class="post-tags">
+              <li class="post-tag is-skill">PPT 制作</li>
+              <li class="post-tag is-skill">答辩陈述</li>
+              <li class="post-tag is-skill">数据分析</li>
+            </ul>
+            <a class="btn btn-line" href="listings.html?q=商业案例分析#contest">去找队友</a>
+          </footer>
+        </article>
+        <article class="contest">
+          <header class="contest-head">
+            <span class="post-board is-contest">已结束</span>
+            <span class="contest-name">校园科技创新大赛（校内）</span>
+          </header>
+          <ul class="contest-facts">
+            <li><span>报名截止</span><b>2026-09-20</b></li>
+            <li><span>比赛时间</span><b>2026-10</b></li>
+            <li><span>队伍规模</span><b>4 人</b></li>
+            <li><span>相关招募帖</span><b>0 条</b></li>
+          </ul>
+          <p>校内赛事，门槛相对低，适合第一次组队打比赛的同学练手。本届已结束，下一届通常在新学期开学后开始报名。</p>
+          <footer class="contest-foot">
+            <ul class="post-tags">
+              <li class="post-tag is-skill">编程</li>
+              <li class="post-tag is-skill">视觉设计</li>
+            </ul>
+            <span class="contest-closed">下一届开赛前会开放组队</span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

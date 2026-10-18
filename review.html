@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>互评 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="组队结束后给队友打分，评价计入组队信用分并公开展示。" />
+<link rel="stylesheet" href="style.css" />
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html" class="is-active">互评</a>
+    </nav>
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html" class="is-active">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+    <section class="review-page">
+    <div class="wrap">
+      <a class="back-link" href="profile.html"><span class="back-arrow" aria-hidden="true">←</span><span>返回个人主页</span></a>
+      <p class="eyebrow"><span class="dot"></span>Peer Review · 六维互评</p>
+      <h1>给这次合作打个分</h1>
+      <p class="lead">
+        六个维度，各 1–5 分。不用六个都填 —— 没填的维度不计入平均，也不会当 0 分算。
+        留言是选填的，但低分的时候，一句理由比分数本身有用得多。
+      </p>
+      <div class="rv-list">
+        <article class="review-card" data-rv>
+          <div class="rv-head">
+            <span class="post-avatar">李</span>
+            <div><div class="rv-head-name">李四</div><div class="rv-head-sub">课程组队 · INT202 · 一起做了 3 周</div></div>
+            <span class="rv-state" data-rv-state>未提交</span>
+          </div>
+          <div class="rv-dims">
+              <div class="score-row" data-rv-row>
+                <span class="score-label">按时交付<em>说好的时间点有没有守住</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">交付质量<em>交出来的东西要不要返工</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">任务贡献<em>实际承担了多少，有没有人替你补</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">时间投入<em>有效投入的时间够不够</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">沟通响应<em>消息回不回、说不说得清</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">协作氛围<em>好不好相处、容不容易配合</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+          </div>
+          <label class="rv-comment">
+            <span class="aj-label">留言<em>选填 · 120 字</em></span>
+            <textarea class="aj-textarea" maxlength="120" data-rv-text placeholder="一句话说说这次合作 —— 不写也行，但写了对下一个人最有用。"></textarea>
+            <span class="aj-count" data-rv-count>0 / 120</span>
+          </label>
+          <div class="aj-actions">
+            <button class="btn btn-ink review-submit" type="button" data-rv-submit>提交评价</button>
+            <a class="btn btn-line" href="profile.html">稍后再评</a>
+          </div>
+          <p class="rv-msg" data-rv-msg role="status" aria-live="polite"></p>
+        </article>
+        <article class="review-card" data-rv>
+          <div class="rv-head">
+            <span class="post-avatar">王</span>
+            <div><div class="rv-head-name">王五</div><div class="rv-head-sub">课程组队 · INT202 · 一起做了 3 周</div></div>
+            <span class="rv-state" data-rv-state>未提交</span>
+          </div>
+          <div class="rv-dims">
+              <div class="score-row" data-rv-row>
+                <span class="score-label">按时交付<em>说好的时间点有没有守住</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">交付质量<em>交出来的东西要不要返工</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">任务贡献<em>实际承担了多少，有没有人替你补</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">时间投入<em>有效投入的时间够不够</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">沟通响应<em>消息回不回、说不说得清</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+              <div class="score-row" data-rv-row>
+                <span class="score-label">协作氛围<em>好不好相处、容不容易配合</em></span>
+                <span class="score-dots">
+                  <button class="score-dot" type="button" data-rv-dot="1" aria-label="1 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="2" aria-label="2 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="3" aria-label="3 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="4" aria-label="4 分"></button>
+                  <button class="score-dot" type="button" data-rv-dot="5" aria-label="5 分"></button>
+                </span>
+                <span class="score-value" data-rv-value>未评分</span>
+              </div>
+          </div>
+          <label class="rv-comment">
+            <span class="aj-label">留言<em>选填 · 120 字</em></span>
+            <textarea class="aj-textarea" maxlength="120" data-rv-text placeholder="一句话说说这次合作 —— 不写也行，但写了对下一个人最有用。"></textarea>
+            <span class="aj-count" data-rv-count>0 / 120</span>
+          </label>
+          <div class="aj-actions">
+            <button class="btn btn-ink review-submit" type="button" data-rv-submit>提交评价</button>
+            <a class="btn btn-line" href="profile.html">稍后再评</a>
+          </div>
+          <p class="rv-msg" data-rv-msg role="status" aria-live="polite"></p>
+        </article>
+      </div>
+      <p class="rv-note">
+        双方都提交之后评价才会互相可见 —— 所以先写的人不用担心被报复。<br />
+        点一下给分；再点同一格＝取消这一维度，改主意再点回来就行。
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 退出这一页之前的确认（不是取消某个分数） -->
+<div class="rv-modal" data-rv-leave hidden>
+  <div class="rv-modal-card" role="dialog" aria-modal="true" aria-labelledby="rvLeaveTitle">
+    <p class="rv-modal-title" id="rvLeaveTitle">球球了，没人打分，这里就没用了🥺</p>
+    <p class="rv-modal-sub" data-rv-leave-sub>提交一下，就一次。</p>
+    <div class="rv-modal-actions">
+      <button class="btn btn-ink" type="button" data-rv-leave-yes>那我也不评</button>
+      <button class="btn btn-line" type="button" data-rv-leave-no>我评，我先评</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

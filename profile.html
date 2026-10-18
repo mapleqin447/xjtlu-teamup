@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>个人主页 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="个人档案：擅长方向、自我介绍、组队信用分、历史评价与我发布的招募帖。" />
+<link rel="stylesheet" href="style.css" />
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html" class="is-active">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="profile">
+    <div class="auth-bg" aria-hidden="true"></div>
+    <div class="auth-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="profile-head">
+        <span class="post-avatar profile-avatar" id="pf-avatar">张</span>
+        <div class="profile-head-text">
+          <span class="tag-mono">Profile</span>
+          <h1 id="pf-name">张三</h1>
+          <p id="pf-sub">计算机科学与技术 · 大二 · 已实名认证（学号 &#42;&#42;&#42;&#42;2023）</p>
+        </div>
+        <a class="btn btn-line" href="register.html">编辑档案</a>
+      </div>
+      <nav class="profile-nav" aria-label="跳到个人主页的某一节">
+        <a href="#sec-skills">擅长方向</a>
+        <a href="#sec-intro">自我介绍</a>
+        <a href="#sec-times">可投入时间</a>
+        <a href="#sec-projects">完成的项目</a>
+        <a href="#sec-posts">我发布的</a>
+        <a href="#sec-reviews">收到的评价</a>
+        <a href="#sec-todo">待我评价</a>
+      </nav>
+
+
+      <div class="profile-layout">
+        <div class="profile-main">
+          <div class="card" id="sec-skills">
+            <h2 class="card-title">擅长方向</h2>
+            <ul class="post-tags" id="pf-skills">
+              <li class="post-tag is-skill">编程</li>
+              <li class="post-tag is-skill">数据分析</li>
+              <li class="post-tag is-skill">答辩陈述</li>
+            </ul>
+          </div>
+
+          <div class="card" id="sec-intro">
+            <h2 class="card-title">自我介绍</h2>
+            <p id="pf-intro">做过三次课程小组作业和一次美赛，没掉过链子。写代码比较慢但很少返工，报告和答辩也能接。
+            想找愿意提前排时间、有问题直接说的人；不接临交前才说做不完的队友。</p>
+          </div>
+
+          <div class="card" id="sec-times">
+            <h2 class="card-title">可投入时间</h2>
+            <ul class="post-tags" id="pf-times">
+              <li class="post-tag is-time">工作日晚间</li>
+              <li class="post-tag is-time">周末白天</li>
+              <li class="post-tag is-time">课间碎片</li>
+            </ul>
+          </div>
+
+          <div class="card" id="sec-projects">
+            <h2 class="card-title">完成的项目（<span data-pf-proj>3</span>）</h2>
+            <ul class="project-list" data-pf-sample="projects">
+              <li class="project-item">
+                <div class="project-head">
+                  <span class="post-board is-course">课程组队</span>
+                  <b class="project-name">INT202 数据库小组作业</b>
+                  <span class="project-when">2026 春季学期</span>
+                </div>
+                <p class="project-role">我负责：建库与 SQL 查询 · 队友：李四、王五</p>
+                <div class="project-meta">
+                  <span class="review-stars" aria-label="5 分">★★★★★</span>
+                  <span>这次组队的评价 5.0</span>
+                </div>
+              </li>
+              <li class="project-item">
+                <div class="project-head">
+                  <span class="post-board is-contest">学科竞赛</span>
+                  <b class="project-name">美国大学生数学建模竞赛 MCM/ICM</b>
+                  <span class="project-when">2026 年 2 月</span>
+                </div>
+                <p class="project-role">我负责：编程与出图 · 队友：吴九、陈二</p>
+                <div class="project-meta">
+                  <span class="review-stars" aria-label="5 分">★★★★★</span>
+                  <span>这次组队的评价 5.0</span>
+                </div>
+              </li>
+              <li class="project-item">
+                <div class="project-head">
+                  <span class="post-board is-course">课程组队</span>
+                  <b class="project-name">BUS101 商业案例分析</b>
+                  <span class="project-when">2025 秋季学期</span>
+                </div>
+                <p class="project-role">我负责：PPT 与课堂答辩 · 队友：王五</p>
+                <div class="project-meta">
+                  <span class="review-stars" aria-label="4 分">★★★★☆</span>
+                  <span>这次组队的评价 4.0</span>
+                </div>
+              </li>
+            </ul>
+            <div class="pf-empty" data-pf-empty="projects" hidden>
+              <p class="pf-empty-title">还没有完成的项目</p>
+              <p class="pf-empty-note">组队成功、项目收尾之后，它会出现在这里。</p>
+              <a class="btn btn-line" href="listings.html">去看组队帖</a>
+            </div>
+          </div>
+
+          <div class="card" id="sec-posts">
+            <h2 class="card-title">我发布的招募帖（2）</h2>
+            <div class="gd-list card-list" id="pf-posts">
+              <a class="gd-row" href="post.html">
+                <span class="gd-row-num">01</span>
+                <span class="gd-row-title">找 2 人一起做 INT202 数据库小组作业</span>
+                <span class="gd-row-desc">课程组队 · 还缺 2 人 · 2 小时前</span>
+                <span class="gd-row-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="gd-row" href="post.html">
+                <span class="gd-row-num">02</span>
+                <span class="gd-row-title">美赛 2027 组队，缺一个能写代码的</span>
+                <span class="gd-row-desc">竞赛组队 · 还缺 1 人 · 5 天前</span>
+                <span class="gd-row-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card" id="sec-reviews">
+            <h2 class="card-title">收到的评价</h2>
+<ul class="review-summary" data-pf-sample="reviews">
+              <li><b data-pf-r1>12</b><span>次组队</span></li>
+              <li><b data-pf-r2>4.8</b><span>平均评分</span></li>
+              <li><b data-pf-r3>100%</b><span>履约率</span></li>
+            </ul>
+
+            <ul class="review-list" data-pf-sample="reviews">
+              <li class="review-item">
+                <div class="review-head">
+                  <span class="post-avatar">李</span>
+                  <b>李四</b>
+                  <span class="review-stars" aria-label="5 分">★★★★★</span>
+                  <span class="review-when">3 天前</span>
+                </div>
+                <p>SQL 部分写得干净，进度从不拖。中期我对需求理解错了，是他先发现并拉回来。</p>
+                <span class="review-tag">课程组队 · INT202</span>
+              </li>
+              <li class="review-item">
+                <div class="review-head">
+                  <span class="post-avatar">吴</span>
+                  <b>吴九</b>
+                  <span class="review-stars" aria-label="5 分">★★★★★</span>
+                  <span class="review-when">2 周前</span>
+                </div>
+                <p>凌晨三点还在跑数据，最后论文里的图全是他出的。愿意补位，不挑活。</p>
+                <span class="review-tag">学科竞赛 · MCM/ICM</span>
+              </li>
+              <li class="review-item">
+                <div class="review-head">
+                  <span class="post-avatar">王</span>
+                  <b>王五</b>
+                  <span class="review-stars" aria-label="4 分">★★★★☆</span>
+                  <span class="review-when">1 个月前</span>
+                </div>
+                <p>技术没问题。唯一想说的是前期沟通少了一点，希望下次能更早同步进度。</p>
+                <span class="review-tag">课程组队 · BUS101</span>
+              </li>
+            </ul>
+            <div class="pf-empty" data-pf-empty="reviews" hidden>
+              <p class="pf-empty-title">还没有收到评价</p>
+              <p class="pf-empty-note">完成一次组队、双方都提交互评之后，这里才会有内容。</p>
+              <a class="btn btn-line" href="review.html">看看互评规则</a>
+            </div>
+
+            <p class="card-foot-note">评价来自每次组队结束后的双向互评，只有双方都提交之后才会公开。</p>
+          </div>
+
+          <div class="card" id="sec-todo">
+            <h2 class="card-title">待我评价（2）</h2>
+
+            <div class="queue-list">
+              <a class="queue-item" href="review.html">
+                <span class="post-avatar">李</span>
+                <span class="queue-text">
+                  <b class="queue-name">李四</b>
+                  <span class="queue-sub">金融数学 · 大一 · INT202 结束于 3 天前</span>
+                </span>
+                <span class="queue-go">去评价 →</span>
+              </a>
+              <a class="queue-item" href="review.html">
+                <span class="post-avatar">吴</span>
+                <span class="queue-text">
+                  <b class="queue-name">吴九</b>
+                  <span class="queue-sub">数学与应用数学 · 大三 · 美赛 MCM/ICM 结束于 2 周前</span>
+                </span>
+                <span class="queue-go">去评价 →</span>
+              </a>
+            </div>
+
+            <p class="card-foot-note">同一支队伍的成员互相评价。双方都提交之后才会互相可见 —— 所以先写的人不用担心被报复。</p>
+          </div>
+        </div>
+
+        <aside class="profile-side">
+                    <div class="credit-card">
+            <div class="credit-top"><span>组队信用分</span><span data-pf-level>Level A</span></div>
+            <div class="credit-radar"><svg viewBox="0 0 220 220" role="img" aria-label="六维评价雷达图，圆心是组队信用分 92">
+  <polygon class="rv-radar-ring" points="110.0,92.0 125.6,101.0 125.6,119.0 110.0,128.0 94.4,119.0 94.4,101.0" />
+  <polygon class="rv-radar-ring" points="110.0,74.0 141.2,92.0 141.2,128.0 110.0,146.0 78.8,128.0 78.8,92.0" />
+  <polygon class="rv-radar-ring" points="110.0,56.0 156.8,83.0 156.8,137.0 110.0,164.0 63.2,137.0 63.2,83.0" />
+  <polygon class="rv-radar-ring" points="110.0,38.0 172.4,74.0 172.4,146.0 110.0,182.0 47.6,146.0 47.6,74.0" />
+  <polygon class="rv-radar-ring" points="110.0,20.0 187.9,65.0 187.9,155.0 110.0,200.0 32.1,155.0 32.1,65.0" />
+  <line class="rv-radar-spoke" x1="110" y1="110" x2="110.0" y2="20.0" />
+  <line class="rv-radar-spoke" x1="110" y1="110" x2="187.9" y2="65.0" />
+  <line class="rv-radar-spoke" x1="110" y1="110" x2="187.9" y2="155.0" />
+  <line class="rv-radar-spoke" x1="110" y1="110" x2="110.0" y2="200.0" />
+  <line class="rv-radar-spoke" x1="110" y1="110" x2="32.1" y2="155.0" />
+  <line class="rv-radar-spoke" x1="110" y1="110" x2="32.1" y2="65.0" />
+  <polygon class="rv-radar-area" data-pf-radar points="110.0,21.8 184.8,66.8 183.3,152.3 110.0,192.8 33.6,154.1 32.1,65.0" />
+  <circle class="rv-radar-dot" cx="110.0" cy="21.8" r="2.6" />
+  <circle class="rv-radar-dot" cx="184.8" cy="66.8" r="2.6" />
+  <circle class="rv-radar-dot" cx="183.3" cy="152.3" r="2.6" />
+  <circle class="rv-radar-dot" cx="110.0" cy="192.8" r="2.6" />
+  <circle class="rv-radar-dot" cx="33.6" cy="154.1" r="2.6" />
+  <circle class="rv-radar-dot" cx="32.1" cy="65.0" r="2.6" />
+  <text class="rv-radar-axis" x="110.0" y="8.0" text-anchor="middle">交付</text>
+  <text class="rv-radar-axis" x="200.9" y="60.5" text-anchor="start">质量</text>
+  <text class="rv-radar-axis" x="200.9" y="165.5" text-anchor="start">贡献</text>
+  <text class="rv-radar-axis" x="110.0" y="218.0" text-anchor="middle">投入</text>
+  <text class="rv-radar-axis" x="19.1" y="165.5" text-anchor="end">沟通</text>
+  <text class="rv-radar-axis" x="19.1" y="60.5" text-anchor="end">氛围</text>
+  <text class="credit-hub" x="110" y="112" text-anchor="middle" data-pf-credit>92</text>
+  <text class="credit-hub-sub" x="110" y="130" text-anchor="middle">CREDIT</text>
+</svg></div>
+            <ul class="credit-dims" data-pf-radar>
+              <li>按时交付<b>4.9</b></li>
+              <li>交付质量<b>4.8</b></li>
+              <li>任务贡献<b>4.7</b></li>
+              <li>时间投入<b>4.6</b></li>
+              <li>沟通响应<b>4.9</b></li>
+              <li>协作氛围<b>5.0</b></li>
+            </ul>
+            <p data-pf-basis>信用分由上面六个维度的平均分折算。基于 12 次组队结束后的双向互评 —— 低于 60 分将无法发布招募帖。</p>
+          </div>
+
+          <div class="owner-card">
+            <div class="owner-card-top"><span>数据</span><span>本学期</span></div>
+            <div class="owner-card-body">
+              <ul class="stat-list">
+                <li><span>发布招募</span><b data-pf-posts>2</b></li>
+                <li><span>参与组队</span><b data-pf-teams>4</b></li>
+                <li><span>收到评价</span><b data-pf-revs>12</b></li>
+                <li><span>平均评分</span><b data-pf-avg>4.8</b></li>
+                <li><span>履约率</span><b data-pf-rate>100%</b></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="owner-card">
+            <div class="owner-card-top"><span>实名状态</span><span>已通过</span></div>
+            <div class="owner-card-body">
+              <p class="owner-intro" style="margin-top:0;padding-top:0;border-top:0;">
+                学号已与校园统一认证绑定，一人一号。你的学号不会对外公开，队友只会看到
+                「已实名认证」这个标记。
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

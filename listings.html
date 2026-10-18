@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>组队帖 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="西浦校园组队帖：按课程代码、技能标签、可投入时间筛选课程作业与学科竞赛的招募帖。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html">首页</a>
+      <a href="listings.html" class="is-active">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a>
+    <a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html">首页</a>
+    <a href="listings.html" class="is-active">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="list">
+    <div class="auth-bg" aria-hidden="true"></div>
+    <div class="auth-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <!-- 页头 -->
+      <div class="list-head">
+        <div class="list-head-text">
+          <span class="tag-mono">Team-up Board</span>
+          <h1>组队帖</h1>
+          <p>按课程、技能和时间筛，找到现在就能一起做事的人。</p>
+        </div>
+        <a class="btn btn-ink list-new" href="new-post.html">发布招募帖</a>
+      </div>
+
+      <!-- 板块切换 -->
+      <div class="board-tabs">
+        <button class="board-tab is-on" type="button" data-board="course" aria-pressed="true">课程作业组队</button>
+        <button class="board-tab" type="button" data-board="contest" aria-pressed="false">学科竞赛组队</button>
+      </div>
+
+      <!-- 筛选栏 -->
+      <div class="filters">
+        <div class="filter-row">
+          <label class="filter-label" for="q">搜索</label>
+          <input class="field-input filter-search" id="q" type="search" placeholder="课程代码、比赛名称、关键词…" />
+          <label class="check filter-open">
+            <input type="checkbox" id="openOnly" />
+            <span>只看还有空位</span>
+          </label>
+          <button class="chip chip-sm filter-urgent" type="button" data-filter-urgent="1">紧急补人</button>
+          <button class="link-quiet filter-reset" type="button">重置</button>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">擅长方向</span>
+          <div class="chips">
+            <button class="chip chip-sm" type="button" data-filter-skill="编程">编程</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="建模">建模</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="数据分析">数据分析</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="视觉设计">视觉设计</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="文案撰写">文案撰写</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="PPT 制作">PPT 制作</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="调研访谈">调研访谈</button>
+            <button class="chip chip-sm" type="button" data-filter-skill="答辩陈述">答辩陈述</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">可投入时间</span>
+          <div class="chips">
+            <button class="chip chip-sm" type="button" data-filter-time="工作日晚间">工作日晚间</button>
+            <button class="chip chip-sm" type="button" data-filter-time="周末白天">周末白天</button>
+            <button class="chip chip-sm" type="button" data-filter-time="周末晚间">周末晚间</button>
+            <button class="chip chip-sm" type="button" data-filter-time="课间碎片">课间碎片</button>
+            <button class="chip chip-sm" type="button" data-filter-time="假期集中">假期集中</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-meta">
+        <span class="list-count">共 11 条招募</span>
+        <span class="list-hint">同一行里多选，是「满足任一」</span>
+      </div>
+
+      <p class="form-msg list-msg" role="status" aria-live="polite"></p>
+
+      <div class="posts">
+        <article class="post" data-board="course" data-skills="数据分析|文案撰写" data-times="工作日晚间|周末白天" data-open="1" data-keyword="int202 找 2 人一起做 int202 数据库小组作业 需要一个负责数据分析和写报告的队友，最好会一点编程。作业量不小，但可以一起排时间。 数据分析 文案撰写 工作日晚间 周末白天 张三 计算机科学与技术 · 大二">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-course">课程组队</span>
+            <span class="post-code">INT202</span>
+            <span class="post-when">2 小时前</span>
+          </header>
+
+          <h3 class="post-title">找 2 人一起做 INT202 数据库小组作业</h3>
+          <p class="post-desc">需要一个负责数据分析和写报告的队友，最好会一点编程。作业量不小，但可以一起排时间。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">数据分析</li>
+          <li class="post-tag is-skill">文案撰写</li>
+          <li class="post-tag is-time">工作日晚间</li>
+          <li class="post-tag is-time">周末白天</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">张</span>
+              <span class="post-owner-info">
+                <b class="post-owner">张三</b>
+                <span class="post-owner-sub">计算机科学与技术 · 大二</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 92</span>
+              <span class="post-slots"><b>缺 2 人</b> · 共 4 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="course" data-skills="建模|答辩陈述" data-times="课间碎片|周末白天" data-open="1" data-keyword="mth102 线性代数小组报告还差一个会建模的 报告主体已经写完，缺一个负责建模推导和上台答辩的人。 建模 答辩陈述 课间碎片 周末白天 李四 金融数学 · 大一">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-course">课程组队</span>
+            <span class="post-code">MTH102</span>
+            <span class="post-when">5 小时前</span>
+          </header>
+
+          <h3 class="post-title">线性代数小组报告还差一个会建模的</h3>
+          <p class="post-desc">报告主体已经写完，缺一个负责建模推导和上台答辩的人。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">建模</li>
+          <li class="post-tag is-skill">答辩陈述</li>
+          <li class="post-tag is-time">课间碎片</li>
+          <li class="post-tag is-time">周末白天</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">李</span>
+              <span class="post-owner-info">
+                <b class="post-owner">李四</b>
+                <span class="post-owner-sub">金融数学 · 大一</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 88</span>
+              <span class="post-slots"><b>缺 1 人</b> · 共 3 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="course" data-skills="调研访谈|PPT 制作" data-times="工作日晚间" data-open="1" data-keyword="bus101 商业案例分析，招调研和做 ppt 的 案例已经选好，需要有人跑访谈、有人把 ppt 做扎实。我们想冲一下 a 档。 调研访谈 ppt 制作 工作日晚间 王五 国际商务 · 大三">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-course">课程组队</span>
+            <span class="post-code">BUS101</span>
+            <span class="post-when">昨天</span>
+          </header>
+
+          <h3 class="post-title">商业案例分析，招调研和做 PPT 的</h3>
+          <p class="post-desc">案例已经选好，需要有人跑访谈、有人把 PPT 做扎实。我们想冲一下 A 档。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">调研访谈</li>
+          <li class="post-tag is-skill">PPT 制作</li>
+          <li class="post-tag is-time">工作日晚间</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">王</span>
+              <span class="post-owner-info">
+                <b class="post-owner">王五</b>
+                <span class="post-owner-sub">国际商务 · 大三</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 95</span>
+              <span class="post-slots"><b>缺 2 人</b> · 共 5 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="course" data-skills="编程" data-times="周末晚间" data-open="1" data-keyword="cse105 编程大作业缺 1 人，一起写编译器前端 我负责词法和语法分析，想找个能接手语义分析和测试的同学。可以互相 review。 编程 周末晚间 赵六 计算机科学与技术 · 大二">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-course">课程组队</span>
+            <span class="post-code">CSE105</span>
+            <span class="post-urgent">紧急补人</span>
+            <span class="post-when">昨天</span>
+          </header>
+
+          <h3 class="post-title">编程大作业缺 1 人，一起写编译器前端</h3>
+          <p class="post-desc">我负责词法和语法分析，想找个能接手语义分析和测试的同学。可以互相 review。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">编程</li>
+          <li class="post-tag is-time">周末晚间</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">赵</span>
+              <span class="post-owner-info">
+                <b class="post-owner">赵六</b>
+                <span class="post-owner-sub">计算机科学与技术 · 大二</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 79</span>
+              <span class="post-slots"><b>缺 1 人</b> · 共 2 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="course" data-skills="视觉设计|建模" data-times="周末白天|周末晚间" data-open="1" data-keyword="arc210 建筑设计小组招会出图和建模的 已经有方案和场地分析，缺视觉呈现和 rhino 建模。答辩稿我可以写。 视觉设计 建模 周末白天 周末晚间 孙七 建筑学 · 大二">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-course">课程组队</span>
+            <span class="post-code">ARC210</span>
+            <span class="post-when">2 天前</span>
+          </header>
+
+          <h3 class="post-title">建筑设计小组招会出图和建模的</h3>
+          <p class="post-desc">已经有方案和场地分析，缺视觉呈现和 Rhino 建模。答辩稿我可以写。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">视觉设计</li>
+          <li class="post-tag is-skill">建模</li>
+          <li class="post-tag is-time">周末白天</li>
+          <li class="post-tag is-time">周末晚间</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">孙</span>
+              <span class="post-owner-info">
+                <b class="post-owner">孙七</b>
+                <span class="post-owner-sub">建筑学 · 大二</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 90</span>
+              <span class="post-slots"><b>缺 2 人</b> · 共 3 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="course" data-skills="文案撰写" data-times="课间碎片" data-open="0" data-keyword="eee108 电路实验报告，已组满（下次再约） 三个人已经凑齐了，谢谢来问的同学，以后有别的课再来找我。 文案撰写 课间碎片 周八 电子电气 · 大一">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-course">课程组队</span>
+            <span class="post-code">EEE108</span>
+            <span class="post-when">3 天前</span>
+          </header>
+
+          <h3 class="post-title">电路实验报告，已组满（下次再约）</h3>
+          <p class="post-desc">三个人已经凑齐了，谢谢来问的同学，以后有别的课再来找我。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">文案撰写</li>
+          <li class="post-tag is-time">课间碎片</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">周</span>
+              <span class="post-owner-info">
+                <b class="post-owner">周八</b>
+                <span class="post-owner-sub">电子电气 · 大一</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 85</span>
+              <span class="post-slots">已组满 · 共 3 人</span>
+              <button class="post-join" type="button" disabled aria-disabled="true">已组满</button>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="contest" data-skills="编程|建模" data-times="假期集中" data-open="1" data-keyword="mcm/icm 美赛 2027 组队，缺一个能写代码的 已有建模和论文两个人，缺一个负责实现和出图的。目标是 m 奖，寒假要集训。 编程 建模 假期集中 吴九 数学与应用数学 · 大三">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-contest">竞赛组队</span>
+            <span class="post-code">MCM/ICM</span>
+            <span class="post-urgent">紧急补人</span>
+            <span class="post-when">1 小时前</span>
+          </header>
+
+          <h3 class="post-title">美赛 2027 组队，缺一个能写代码的</h3>
+          <p class="post-desc">已有建模和论文两个人，缺一个负责实现和出图的。目标是 M 奖，寒假要集训。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">编程</li>
+          <li class="post-tag is-skill">建模</li>
+          <li class="post-tag is-time">假期集中</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">吴</span>
+              <span class="post-owner-info">
+                <b class="post-owner">吴九</b>
+                <span class="post-owner-sub">数学与应用数学 · 大三</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 97</span>
+              <span class="post-slots"><b>缺 1 人</b> · 共 3 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="contest" data-skills="调研访谈|文案撰写" data-times="工作日晚间|周末白天" data-open="1" data-keyword="挑战杯 挑战杯校内选拔，招调研和写材料的 题目方向是校园服务，需要有人做问卷和深访，也有人能写申报材料。 调研访谈 文案撰写 工作日晚间 周末白天 郑十 管理学 · 大二">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-contest">竞赛组队</span>
+            <span class="post-code">挑战杯</span>
+            <span class="post-when">8 小时前</span>
+          </header>
+
+          <h3 class="post-title">挑战杯校内选拔，招调研和写材料的</h3>
+          <p class="post-desc">题目方向是校园服务，需要有人做问卷和深访，也有人能写申报材料。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">调研访谈</li>
+          <li class="post-tag is-skill">文案撰写</li>
+          <li class="post-tag is-time">工作日晚间</li>
+          <li class="post-tag is-time">周末白天</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">郑</span>
+              <span class="post-owner-info">
+                <b class="post-owner">郑十</b>
+                <span class="post-owner-sub">管理学 · 大二</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 91</span>
+              <span class="post-slots"><b>缺 2 人</b> · 共 5 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="contest" data-skills="PPT 制作|答辩陈述" data-times="周末晚间" data-open="1" data-keyword="商业赛 商业案例分析赛，缺一个做答辩的 分析和数据部分已经有人，需要台风稳、能临场接问的同学。 ppt 制作 答辩陈述 周末晚间 冯一 国际商务 · 大三">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-contest">竞赛组队</span>
+            <span class="post-code">商业赛</span>
+            <span class="post-when">昨天</span>
+          </header>
+
+          <h3 class="post-title">商业案例分析赛，缺一个做答辩的</h3>
+          <p class="post-desc">分析和数据部分已经有人，需要台风稳、能临场接问的同学。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">PPT 制作</li>
+          <li class="post-tag is-skill">答辩陈述</li>
+          <li class="post-tag is-time">周末晚间</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">冯</span>
+              <span class="post-owner-info">
+                <b class="post-owner">冯一</b>
+                <span class="post-owner-sub">国际商务 · 大三</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 93</span>
+              <span class="post-slots"><b>缺 1 人</b> · 共 4 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="contest" data-skills="建模|编程|文案撰写" data-times="假期集中|周末白天" data-open="1" data-keyword="国赛 全国大学生数学建模，还缺 1 人 队伍里有建模和编程，缺一个能扛论文写作和排版的。三天两夜，能熬的来。 建模 编程 文案撰写 假期集中 周末白天 陈二 数学与应用数学 · 大二">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-contest">竞赛组队</span>
+            <span class="post-code">国赛</span>
+            <span class="post-when">2 天前</span>
+          </header>
+
+          <h3 class="post-title">全国大学生数学建模，还缺 1 人</h3>
+          <p class="post-desc">队伍里有建模和编程，缺一个能扛论文写作和排版的。三天两夜，能熬的来。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">建模</li>
+          <li class="post-tag is-skill">编程</li>
+          <li class="post-tag is-skill">文案撰写</li>
+          <li class="post-tag is-time">假期集中</li>
+          <li class="post-tag is-time">周末白天</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">陈</span>
+              <span class="post-owner-info">
+                <b class="post-owner">陈二</b>
+                <span class="post-owner-sub">数学与应用数学 · 大二</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 86</span>
+              <span class="post-slots"><b>缺 1 人</b> · 共 3 人</span>
+              <a class="post-join" href="post.html">申请加入</a>
+            </div>
+          </footer>
+        </article>
+        <article class="post" data-board="contest" data-skills="编程|视觉设计" data-times="周末白天" data-open="0" data-keyword="科创赛 科创赛已组满 队伍满员了，暂时不再招人。有想组队的同学可以私信我，下次缺人优先找你。 编程 视觉设计 周末白天 卫三 电子电气 · 大三">
+          <a class="post-link" href="post.html" aria-label="查看这条招募帖的详情"></a>
+          <header class="post-head">
+            <span class="post-board is-contest">竞赛组队</span>
+            <span class="post-code">科创赛</span>
+            <span class="post-when">4 天前</span>
+          </header>
+
+          <h3 class="post-title">科创赛已组满</h3>
+          <p class="post-desc">队伍满员了，暂时不再招人。有想组队的同学可以私信我，下次缺人优先找你。</p>
+
+          <ul class="post-tags">
+          <li class="post-tag is-skill">编程</li>
+          <li class="post-tag is-skill">视觉设计</li>
+          <li class="post-tag is-time">周末白天</li>
+          </ul>
+
+          <footer class="post-foot">
+            <div class="post-owner-box">
+              <span class="post-avatar">卫</span>
+              <span class="post-owner-info">
+                <b class="post-owner">卫三</b>
+                <span class="post-owner-sub">电子电气 · 大三</span>
+              </span>
+            </div>
+            <div class="post-side">
+              <span class="post-credit">信用分 89</span>
+              <span class="post-slots">已组满 · 共 4 人</span>
+              <button class="post-join" type="button" disabled aria-disabled="true">已组满</button>
+            </div>
+          </footer>
+        </article>
+      </div>
+
+      <p class="list-empty" hidden>
+        没有符合条件的招募帖。试试放宽筛选，或者自己发一条。
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

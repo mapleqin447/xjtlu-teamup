@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>找队友，不该靠运气 · TrustMate · 西浦校园组队平台</title>
+<meta name="description" content="NOX · Under the Firmament —— 西浦校园组队平台：课程作业与学科竞赛双板块，用标签匹配找到对的人，用实名认证与双向互评建立信任。" />
+<link rel="stylesheet" href="style.css" />
+<!-- 给 <html> 加上 js 类。滚动渐入的「先隐藏」只在有 js 类时生效，
+     所以万一这个文件里的脚本没加载成功，页面内容依然可见，不会白屏。 -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="page-home">
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- 背景水印：整页固定不动的巨幅组标，压得很浅当底纹。
+     放在 body 直接子级 + z-index:-1 → 永远垫在所有内容下面，
+     黑色数据条、深色页脚这些不透明块会自然把它盖住。 -->
+<div class="gd-bgmark" aria-hidden="true">
+  <img src="assets/nox-logo-on-light.svg" alt="" />
+</div>
+
+<!-- ============ 顶部导航：每个页面写法一致，只有当前页高亮 ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="点我打开首页.html" aria-label="回到首页">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+      <span class="brand-text">TrustMate<em>XJTLU</em></span>
+    </a>
+
+        <nav class="nav-links" aria-label="主导航">
+      <a href="点我打开首页.html" class="is-active">首页</a>
+      <a href="listings.html">组队帖</a>
+      <a class="nav-chat" href="chat.html">预聊天<i>2</i></a>
+      <a href="team.html">队伍工作台</a>
+      <a href="contests.html">竞赛信息</a>
+      <a href="forum.html">论坛</a>
+      <a href="review.html">互评</a>
+    </nav>
+
+    <a class="nav-login" href="login.html">登录</a><a class="btn btn-dark nav-cta" href="new-post.html">发布招募帖</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+    <div class="nav-mobile" id="navMobile">
+    <a href="点我打开首页.html" class="is-active">首页</a>
+    <a href="listings.html">组队帖</a>
+    <a href="chat.html">预聊天</a>
+    <a href="team.html">队伍工作台</a>
+    <a href="contests.html">竞赛信息</a>
+    <a href="forum.html">论坛</a>
+    <a href="profile.html">个人主页</a>
+    <a href="review.html">互评</a>
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 首屏：平面设计版 ============ -->
+  <section class="gd-hero">
+    <div class="gd-grid" aria-hidden="true"></div>
+    <div class="gd-halftone" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <!-- 顶部技术信息条 -->
+      <div class="gd-meta">
+        <span>TRUSTMATE // XJTLU CAMPUS TEAM-UP</span>
+        <span>R-01 / 2026</span>
+      </div>
+
+      <div class="gd-hero-grid">
+        <div class="gd-main">
+          <img class="gd-logo" src="assets/nox-logo-on-light.svg" alt="NOX · Under the Firmament" />
+
+          <h1 class="gd-title">找队友，<br />不该靠运气。</h1>
+
+          <!-- 带刻度的金线 -->
+          <div class="gd-rule" aria-hidden="true"></div>
+
+          <p class="lead">
+            一个属于西浦学生的组队平台。课程作业与学科竞赛双板块，
+            用可筛选的标签找到对的人，用实名认证与双向互评建立信任 ——
+            让每一次组队，都不再是碰运气。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-ink" href="listings.html">开始找队友</a>
+            <a class="btn btn-line" href="why.html">我们为什么做这个平台</a>
+          </div>
+        </div>
+
+        <!-- 右侧标本框（纯装饰） -->
+        <aside class="gd-side" aria-hidden="true">
+          <div class="gd-specimen">
+            <div class="gd-specimen-top"><span>Specimen</span><span>No.01</span></div>
+            <div class="gd-dots"></div>
+            <div class="gd-barcode"></div>
+            <ul class="gd-spec-lines">
+              <li>Course Matching</li>
+              <li>Verified Campus ID</li>
+              <li>Peer Review Score</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- 数据条：整块近黑，通栏 -->
+    <div class="gd-databar">
+      <div class="wrap">
+        <div class="cell">
+          <span class="v"><span class="count" data-to="20000" data-comma="true" data-suffix="+">20,000+</span></span>
+          <span class="k">西浦在校学生总数</span>
+        </div>
+        <div class="cell">
+          <span class="v"><span class="count" data-to="88.6" data-decimals="1" data-suffix="%">88.6%</span></span>
+          <span class="k">愿意使用课程组队板块</span>
+        </div>
+        <div class="cell">
+          <span class="v"><span class="count" data-to="94.3" data-decimals="1" data-suffix="%">94.3%</span></span>
+          <span class="k">愿意使用比赛组队板块</span>
+        </div>
+        <div class="cell">
+          <span class="v"><span class="count" data-to="34.3" data-decimals="1" data-suffix="%">34.3%</span></span>
+          <span class="k">想参加竞赛，却还没组到队</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 演示动线 ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="num">Demo</span>
+        <h2>完整走一遍</h2>
+      </div>
+      <p class="sec-lead">五步走完一个真实用户从零到成队的过程。每一张卡都能点。</p>
+
+      <div class="route">
+        <a class="route-step" href="register.html">
+          <span class="route-no">01</span>
+          <b>注册并填档案</b>
+          <em>上传头像、选擅长方向、写自我介绍，右边实时预览</em>
+        </a>
+        <a class="route-step" href="listings.html">
+          <span class="route-no">02</span>
+          <b>按条件筛队友</b>
+          <em>课程 / 竞赛双板块，技能、时间、只看有空位</em>
+        </a>
+        <a class="route-step" href="post.html">
+          <span class="route-no">03</span>
+          <b>看详情再申请</b>
+          <em>完整需求 + 队伍成员 + 发布者信用分</em>
+        </a>
+        <a class="route-step" href="new-post.html">
+          <span class="route-no">04</span>
+          <b>自己发一条</b>
+          <em>五段表单，写清要什么人和什么时间</em>
+        </a>
+        <a class="route-step" href="review.html">
+          <span class="route-no">05</span>
+          <b>结束之后互评</b>
+          <em>六维打分，计入信用分并公开展示</em>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 目录 ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="num">About</span>
+        <h2>从哪一页看起</h2>
+      </div>
+      <p class="sec-lead">五个页面，一页只讲一件事。这一组讲的是这个项目是怎么想出来的。</p>
+
+            <div class="gd-list">
+        <a class="gd-row" href="why.html">
+          <span class="gd-row-num">01</span>
+          <span class="gd-row-title">我们为什么做这个平台</span>
+          <span class="gd-row-desc">组队是西浦的高频刚需，但现在的办法太低效、太靠运气。</span>
+          <span class="gd-row-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="gd-row" href="how.html">
+          <span class="gd-row-num">02</span>
+          <span class="gd-row-title">怎么开始</span>
+          <span class="gd-row-desc">完善标签、发布招募、组队互评，三步走到一支成型的队伍。</span>
+          <span class="gd-row-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="gd-row" href="boards.html">
+          <span class="gd-row-num">03</span>
+          <span class="gd-row-title">一个平台，两大板块</span>
+          <span class="gd-row-desc">课程作业看课程和时间，学科竞赛看技能和赛事，所以分成两块。</span>
+          <span class="gd-row-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="gd-row" href="trust.html">
+          <span class="gd-row-num">04</span>
+          <span class="gd-row-title">三重信任保障</span>
+          <span class="gd-row-desc">100% 的学生担心队友不靠谱，所以信任是地基，不是附加功能。</span>
+          <span class="gd-row-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="gd-row" href="data.html">
+          <span class="gd-row-num">05</span>
+          <span class="gd-row-title">调研数据</span>
+          <span class="gd-row-desc">N=35 的问卷，把「痛点」变成可以摆到台面上的数字。</span>
+          <span class="gd-row-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 结尾 ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta">
+        <h2>先占个位置，做第一批用户。</h2>
+        <p>平台正在内测。欢迎愿意认真做项目的同学先来体验，也欢迎你直接告诉我们哪里不好用。</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="join.html">加入内测</a>
+          <a class="btn btn-ghost" href="why.html">再看看我们的初衷</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="点我打开首页.html">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><rect x="2.6" y="2.6" width="12.4" height="12.4" rx="3.6" stroke="#101014" stroke-width="1.6"/><rect x="9" y="9" width="12.4" height="12.4" rx="3.6" fill="#2b46e8" fill-opacity="0.12" stroke="#2b46e8" stroke-width="1.6"/></svg>
+        <span class="brand-text">TrustMate<em>XJTLU</em></span>
+      </a>
+      <p class="footer-tag">找队友，不该靠运气。</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>产品</h4>
+        <a href="chat.html">预聊天</a>
+        <a href="listings.html">组队帖</a>
+        <a href="team.html">队伍工作台</a>
+        <a href="contests.html">竞赛信息</a>
+        <a href="forum.html">论坛</a>
+        <a href="new-post.html">发布招募帖</a>
+        <a href="profile.html">个人主页</a>
+        <a href="review.html">互评</a>
+      </div>
+      <div class="footer-col">
+        <h4>项目说明</h4>
+        <a href="why.html">我们为什么做</a>
+        <a href="how.html">怎么开始</a>
+        <a href="boards.html">双板块</a>
+        <a href="trust.html">信任保障</a>
+        <a href="data.html">调研数据</a>
+      </div>
+      <div class="footer-col">
+        <h4>账号</h4>
+        <a href="login.html">登录</a>
+        <a href="register.html">注册</a>
+        <a href="join.html">加入内测</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 TrustMate · NOX 出品 · 西浦校园组队平台 · 项目 B.1</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
