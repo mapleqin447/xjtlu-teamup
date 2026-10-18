@@ -922,7 +922,7 @@ body.page-leaving{ opacity:0; }
   transform:translateY(14px);
   transition:opacity var(--dur-enter,240ms) var(--ease-out), transform var(--dur-enter,240ms) var(--ease-out);
 }
-.js .reveal.js .reveal.is-in{
+.js .reveal.is-in{
   opacity:1;
   transform:none;
 }

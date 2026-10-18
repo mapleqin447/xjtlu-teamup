@@ -471,6 +471,18 @@
     revealItems.forEach(function (el) { el.classList.add("is-in"); });
   }
 
+  /* 兜底：部分内置浏览器（微信 / 支付宝 WebView、某些国产浏览器）里
+     IntersectionObserver 存在但不回调，元素会永远停在 opacity:0，整页就是空白。
+     1.2 秒后把「已经落在视口里、却还没拿到 .is-in」的元素直接显示出来。 */
+  window.setTimeout(function () {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    revealItems.forEach(function (el) {
+      if (el.classList.contains("is-in")) { return; }
+      var r = el.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) { el.classList.add("is-in"); }
+    });
+  }, 1200);
+
   /* ----------------------------------------------------------
      5) 数字增长动画
         用法：<span class="count" data-to="88.6" data-decimals="1" data-suffix="%">
